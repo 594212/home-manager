@@ -5,6 +5,9 @@
   home.homeDirectory = "/home/sul";
   home.stateVersion = "24.05"; # Please read the comment before changing.
 
+  nixpkgs.config.allowUnfreePredicate = pkg:
+    builtins.elem (lib.getName pkg) [ "ngrok" ];
+
   home.packages = with pkgs; [
     vim
     ngrok
@@ -14,6 +17,11 @@
     ninja
     pkg-config
     cmake
+
+    rustup
+    openssl
+    openssl.dev
+    emscripten
 
     xh
     helix
@@ -71,7 +79,12 @@
 
   home.file = { };
 
-  home.sessionVariables = { EDITOR = "nvim"; };
+  home.sessionVariables = {
+    EDITOR = "nvim";
+    PKG_CONFIG_PATH = "${pkgs.openssl.dev}/lib/pkgconfig";
+    DOCKER_HOST = "unix:///run/user/1000/docker.sock";
+    OPENSSL_DEV = "openssl.dev";
+  };
 
   programs.home-manager.enable = true;
   xdg.enable = true;

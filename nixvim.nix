@@ -63,6 +63,13 @@
       servers = {
         nil-ls.enable = true;
         clangd.enable = true;
+        ccls.enable = true;
+        taplo.enable = true;
+        rust-analyzer = {
+          installCargo = true;
+          installRustc = true;
+          enable = true;
+        };
       };
       keymaps = {
         lspBuf = {
@@ -99,6 +106,7 @@
     none-ls = {
       enable = true;
       sources.formatting.nixfmt.enable = true;
+      sources.formatting.asmfmt.enable = true;
       enableLspFormat = true;
     };
     lsp-format.enable = true;
