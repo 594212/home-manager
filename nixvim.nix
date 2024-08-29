@@ -33,6 +33,7 @@
   ];
 
   plugins = {
+    surround.enable = true;
     treesitter.enable = true;
     telescope = {
       enable = true;
@@ -41,6 +42,9 @@
         "<leader>fg" = "live_grep";
         "<leader>ff" = "find_files";
         "<leader>fb" = "buffers";
+        "<leader>ds" = { action = "lsp_document_symbols"; };
+        "<leader>ws" = "lsp_workspace_symbols";
+        "<leader>gr" = "lsp_references";
       };
     };
     harpoon = {
@@ -66,8 +70,8 @@
         ccls.enable = true;
         taplo.enable = true;
         rust-analyzer = {
-          installCargo = true;
-          installRustc = true;
+          installCargo = false;
+          installRustc = false;
           enable = true;
         };
       };
@@ -114,5 +118,6 @@
     nvim-autopairs.enable = true;
     indent-o-matic.enable = true;
     gitsigns.enable = true;
+    which-key.enable = true;
   };
 }

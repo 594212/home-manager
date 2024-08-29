@@ -12,7 +12,6 @@
     vim
     ngrok
 
-    gcc
     meson
     ninja
     pkg-config
@@ -24,7 +23,6 @@
     emscripten
 
     xh
-    helix
     jq
     fd
     xsel
@@ -34,9 +32,11 @@
     skim
     zoxide
     lazydocker
-    lazygit
     starship
     bat
+
+    imgp
+    vscode-langservers-extracted
   ];
 
   programs.bash = {
@@ -78,9 +78,9 @@
   programs.nixvim = import ./nixvim.nix;
 
   home.file = { };
-
+  home.sessionPath = [ "$HOME/.cargo/bin" ];
   home.sessionVariables = {
-    EDITOR = "nvim";
+    EDITOR = "hx";
     PKG_CONFIG_PATH = "${pkgs.openssl.dev}/lib/pkgconfig";
     DOCKER_HOST = "unix:///run/user/1000/docker.sock";
     OPENSSL_DEV = "openssl.dev";
@@ -94,4 +94,26 @@
   # The critical missing piece for me
   xdg.systemDirs.data =
     [ "${config.home.homeDirectory}/.nix-profile/share/applications" ];
+
+  programs.helix = {
+    enable = true;
+    settings = {
+      editor = {
+        line-number = "relative";
+        cursor-shape = {
+          insert = "bar";
+          normal = "block";
+          select = "underline";
+        };
+      };
+      theme = "autumn";
+    };
+    languages = {
+      language-server.rust-analyzer = with pkgs; {
+        command = "${rust-analyzer}/bin/rust-analyzer";
+      };
+    };
+  };
+
+  programs.lazygit = { enable = true; };
 }
