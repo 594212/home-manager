@@ -74,6 +74,10 @@
           installRustc = false;
           enable = true;
         };
+        sqls = {
+          enable = false;
+          settings.hostname = "localhost:5432";
+        };
       };
       keymaps = {
         lspBuf = {

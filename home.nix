@@ -20,6 +20,7 @@
     rustup
     openssl
     openssl.dev
+    perl
     emscripten
 
     xh
@@ -30,31 +31,13 @@
     nixfmt-classic
     ripgrep
     skim
-    zoxide
     lazydocker
-    starship
     bat
 
-    imgp
+    go
+    imagemagick
     vscode-langservers-extracted
   ];
-
-  programs.bash = {
-    enable = true;
-    shellAliases = {
-      cat = "bat --paging=never";
-      lzg = "lazygit";
-      lzd = "lazydocker";
-      fzf = "sk";
-      vi = "nvim";
-    };
-
-    bashrcExtra = ''
-      source $HOME/.nix-profile/etc/profile.d/nix.sh
-      eval "$(starship init bash)"
-      eval "$(zoxide init --cmd cd bash)"
-    '';
-  };
 
   programs.git = {
     enable = true;
@@ -78,7 +61,7 @@
   programs.nixvim = import ./nixvim.nix;
 
   home.file = { };
-  home.sessionPath = [ "$HOME/.cargo/bin" ];
+  home.sessionPath = [ "$HOME/.cargo/bin" "$HOME/go/bin" ];
   home.sessionVariables = {
     EDITOR = "hx";
     PKG_CONFIG_PATH = "${pkgs.openssl.dev}/lib/pkgconfig";
@@ -116,4 +99,18 @@
   };
 
   programs.lazygit = { enable = true; };
+  programs.yazi = {
+    enable = true;
+    enableBashIntegration = true;
+    settings = {
+      log = { enabled = false; };
+      manager = {
+        ratio = [ 1 1 6 ];
+        show_hidden = false;
+        sort_by = "modified";
+        sort_dir_first = true;
+        sort_reverse = true;
+      };
+    };
+  };
 }
