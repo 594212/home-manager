@@ -36,7 +36,11 @@
 
     go
     imagemagick
+
     vscode-langservers-extracted
+    taplo
+    nil
+    ccls
   ];
 
   programs.git = {
@@ -95,6 +99,11 @@
       language-server.rust-analyzer = with pkgs; {
         command = "${rust-analyzer}/bin/rust-analyzer";
       };
+      language = [{
+        auto-format = true;
+        formatter = { command = "nixfmt"; };
+        name = "nix";
+      }];
     };
   };
 
