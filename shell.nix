@@ -1,20 +1,10 @@
 { config, pkgs, lib, ... }: {
-  programs.zsh = {
-    enable = true;
-    shellAliases = {
-      cat = "bat --paging=never";
-      lzg = "lazygit";
-      lzd = "lazydocker";
-      fzf = "sk";
-      vi = "nvim";
-      yy = "yazi";
-    };
-  };
   programs.bash = {
     enable = true;
     shellAliases = {
       cat = "bat --paging=never";
       lzg = "lazygit";
+      "?" = "duck";
       lzd = "lazydocker";
       fzf = "sk";
       vi = "nvim";
@@ -24,6 +14,19 @@
     bashrcExtra = ''
       source $HOME/.nix-profile/etc/profile.d/nix.sh
     '';
+  };
+
+  programs.zsh = {
+    enable = true;
+    shellAliases = {
+      cat = "bat --paging=never";
+      lzg = "lazygit";
+      lzd = "lazydocker";
+      fzf = "sk";
+      vi = "nvim";
+      yy = "yazi";
+      "?" = "duck";
+    };
   };
 
   programs.zellij = {

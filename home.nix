@@ -41,6 +41,17 @@
     taplo
     nil
     ccls
+
+    firefox
+    lynx
+    w3m
+    urlencode
+    (writeShellScriptBin "duck" ''
+      #!/bin/sh
+      url="https://lite.duckduckgo.com/lite?kd=-1&kp=-1&q=$(urlencode "$*")" # 🦆
+      #chat "🦆 searching: $* $url"
+      exec lynx "$url"
+    '')
   ];
 
   programs.git = {
@@ -66,7 +77,15 @@
 
   home.file = { };
   home.sessionPath = [ "$HOME/.cargo/bin" "$HOME/go/bin" ];
+  home.file = {
+    ".config/lynx" = {
+      source = ./lynx;
+      recursive = true;
+    };
+  };
   home.sessionVariables = {
+    LYNX_CFG = "$HOME/.config/lynx/lynx.cfg";
+    LYNX_LSS = "$HOME/.config/lynx/lynx.lss";
     EDITOR = "hx";
     PKG_CONFIG_PATH = "${pkgs.openssl.dev}/lib/pkgconfig";
     DOCKER_HOST = "unix:///run/user/1000/docker.sock";
