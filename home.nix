@@ -12,17 +12,22 @@
     vim
     ngrok
 
+    #c lang
     meson
     ninja
     pkg-config
     cmake
 
+    go
+
+    #rust
     rustup
     openssl
     openssl.dev
     perl
     emscripten
 
+    #utils
     xh
     jq
     fd
@@ -33,16 +38,17 @@
     skim
     lazydocker
     bat
-
-    go
     imagemagick
 
+    #lsp
     vscode-langservers-extracted
+    nodePackages.typescript-language-server
     taplo
     nil
     ccls
 
-    firefox
+    #browser
+    brave
     lynx
     w3m
     urlencode
