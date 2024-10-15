@@ -6,10 +6,13 @@
   home.stateVersion = "24.05"; # Please read the comment before changing.
 
   nixpkgs.config.allowUnfreePredicate = pkg:
-    builtins.elem (lib.getName pkg) [ "ngrok" ];
+    builtins.elem (lib.getName pkg) [ "ngrok" "vscode" ];
+
+  fonts.fontconfig.enable = true;
 
   home.packages = with pkgs; [
     vim
+    vscode
     ngrok
 
     #c lang
@@ -19,6 +22,9 @@
     cmake
 
     go
+    nodejs_22
+    typescript
+    bun
 
     #rust
     rustup
@@ -39,6 +45,9 @@
     lazydocker
     bat
     imagemagick
+    (nerdfonts.override {
+      fonts = [ "FiraCode" "DroidSansMono" "JetBrainsMono" ];
+    })
 
     #lsp
     vscode-langservers-extracted
@@ -82,7 +91,7 @@
   programs.nixvim = import ./nixvim.nix;
 
   home.file = { };
-  home.sessionPath = [ "$HOME/.cargo/bin" "$HOME/go/bin" ];
+  home.sessionPath = [ "$HOME/.cargo/bin" "$HOME/go/bin" "$HOME/.local/bin" ];
   home.file = {
     ".config/lynx" = {
       source = ./lynx;
