@@ -76,18 +76,6 @@
     extraConfig.init.defaultBranch = "main";
   };
 
-  programs.atuin = {
-    enable = true;
-    enableFishIntegration = true;
-    settings = {
-      dialect = "us";
-      ignored_commands = [ "cd" "ls" "vi" ];
-      search_mode = "skim";
-      show_preview = true;
-      style = "compact";
-    };
-  };
-
   programs.nixvim = import ./nixvim.nix;
 
   home.file = { };
@@ -142,18 +130,4 @@
   };
 
   programs.lazygit = { enable = true; };
-  programs.yazi = {
-    enable = true;
-    enableBashIntegration = true;
-    settings = {
-      log = { enabled = false; };
-      manager = {
-        ratio = [ 1 1 6 ];
-        show_hidden = false;
-        sort_by = "modified";
-        sort_dir_first = true;
-        sort_reverse = true;
-      };
-    };
-  };
 }
