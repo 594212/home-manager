@@ -73,7 +73,10 @@
     enable = true;
     userName = "sul";
     userEmail = "su1im69n@gmail.com";
-    extraConfig.init.defaultBranch = "main";
+    extraConfig = {
+      init.defaultBranch = "main";
+      core.editor = "hx";
+    };
   };
 
   programs.nixvim = import ./nixvim.nix;

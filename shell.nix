@@ -61,11 +61,6 @@
     '';
   };
 
-  programs.zellij = {
-    enable = false;
-    enableZshIntegration = true;
-  };
-
   programs.zoxide = {
     enable = true;
     options = [ "--cmd cd" ];
@@ -140,15 +135,61 @@
     };
   };
 
+  programs.tmux = {
+    enable = true;
+    clock24 = true;
+    baseIndex = 1;
+    disableConfirmationPrompt = true;
+    terminal = "xterm-256color";
+    escapeTime = 0;
+    mouse = true;
+    extraConfig = "set-option -g status-position top";
+    plugins = with pkgs; [
+      tmuxPlugins.cpu
+      {
+        plugin = tmuxPlugins.rose-pine;
+        extraConfig = ''
+          set -g @rose_pine_variant 'main'
+          set -g @rose_pine_disable_active_window_menu 'on'
+        '';
+      }
+      {
+        plugin = tmuxPlugins.mode-indicator;
+        extraConfig = ''
+          set -g status-right '%Y-%m-%d %H:%M #{tmux_mode_indicator}'
+        '';
+      }
+    ];
+  };
+
   ########################################
+
+  programs.zellij = {
+    enable = false;
+    enableZshIntegration = true;
+  };
+
   programs.alacritty = {
     enable = false;
     settings = {
-      shell = {
-        program = "${pkgs.zsh}/bin/zsh";
+      terminal.shell = {
+        program = "${pkgs.tmux}/bin/tmux";
         args = [ "-l" ];
+      };
+      window = {
+        decorations = "None";
+        padding = {
+          x = 5;
+          y = 2;
+        };
+        dynamic_padding = true;
+      };
+      cursor.style = {
+        shape = "Beam";
+        blinking = "On";
       };
     };
   };
+
 }
 
