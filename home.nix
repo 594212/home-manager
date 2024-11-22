@@ -96,6 +96,7 @@
     PKG_CONFIG_PATH = "${pkgs.openssl.dev}/lib/pkgconfig";
     DOCKER_HOST = "unix:///run/user/1000/docker.sock";
     OPENSSL_DEV = "openssl.dev";
+    SUDO_EDITOR = "${pkgs.helix}/bin/hx";
   };
 
   programs.home-manager.enable = true;

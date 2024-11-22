@@ -30,6 +30,16 @@
       key = "<C-q>";
       mode = "i";
     }
+    {
+      action = ''"+yy'';
+      key = "<leader>y";
+      mode = "n";
+    }
+    {
+      action = "<cmd>Neotree toggle reveal<CR>";
+      key = "<M-1>";
+      mode = [ "n" "i" "v" ];
+    }
   ];
 
   plugins = {
@@ -45,6 +55,7 @@
         "<leader>ds" = { action = "lsp_document_symbols"; };
         "<leader>ws" = "lsp_workspace_symbols";
         "<leader>gr" = "lsp_references";
+        "<leader>K" = "keymaps";
       };
     };
     harpoon = {
@@ -123,5 +134,6 @@
     indent-o-matic.enable = true;
     gitsigns.enable = true;
     which-key.enable = true;
+    neo-tree.enable = true;
   };
 }

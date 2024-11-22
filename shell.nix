@@ -143,7 +143,10 @@
     terminal = "xterm-256color";
     escapeTime = 0;
     mouse = true;
-    extraConfig = "set-option -g status-position top";
+    extraConfig = ''
+      set-option -g status-position top
+      set -ga terminal-overrides ',*:Ss=\E[%p1%d q:Se=\E[2 q'
+    '';
     plugins = with pkgs; [
       tmuxPlugins.cpu
       {
