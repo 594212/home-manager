@@ -12,5 +12,6 @@ fzf --bind 'start:reload:'"$rg_prefix" \
   --delimiter : \
   --bind "enter:become($EDITOR $format)" \
   --preview 'bat --color=always --style=numbers,changes --highlight-line {2} {1}' \
+  --preview-window 'right:65%' \
   --bind "shift-up:preview-page-up,shift-down:preview-page-down" \
   --bind "alt-up:preview-up,alt-down:preview-down"
