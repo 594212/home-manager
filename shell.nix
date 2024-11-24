@@ -1,4 +1,28 @@
 { config, pkgs, lib, ... }: {
+
+  programs.zsh = {
+    enable = true;
+    shellAliases = {
+      cat = "bat --paging=never";
+      lzg = "lazygit";
+      lzd = "lazydocker";
+      fzf = "sk";
+      vi = "nvim";
+      yy = "yazi";
+      "?" = "duck";
+      pf =
+        "sk --delimiter : --preview 'bat --color=always {1}' --bind shift-up:preview-up,shift-down:preview-down";
+    };
+
+    autosuggestion.enable = true;
+    prezto.enable = true;
+    enableCompletion = true;
+
+    initExtraFirst = ''
+      source $HOME/.nix-profile/etc/profile.d/nix.sh
+    '';
+  };
+
   programs.bash = {
     enable = true;
     shellAliases = {
@@ -9,6 +33,8 @@
       fzf = "sk";
       vi = "nvim";
       yy = "yazi";
+      pf =
+        "sk --delimiter : --preview 'bat --color=always {1}' --bind shift-up:preview-up,shift-down:preview-down";
     };
 
     bashrcExtra = ''
@@ -38,26 +64,6 @@
         table_mode: rounded
         use_ls_colors: true
       }
-    '';
-  };
-
-  programs.zsh = {
-    enable = true;
-    shellAliases = {
-      cat = "bat --paging=never";
-      lzg = "lazygit";
-      lzd = "lazydocker";
-      fzf = "sk";
-      vi = "nvim";
-      yy = "yazi";
-      "?" = "duck";
-    };
-    autosuggestion.enable = true;
-    prezto.enable = true;
-    enableCompletion = true;
-
-    initExtraFirst = ''
-      source $HOME/.nix-profile/etc/profile.d/nix.sh
     '';
   };
 
@@ -195,4 +201,3 @@
   };
 
 }
-

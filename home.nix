@@ -67,6 +67,11 @@
       #chat "🦆 searching: $* $url"
       exec lynx "$url"
     '')
+    (writeShellScriptBin "prg" ''
+      #!/usr/bin/env bash
+      output="$(rg --vimgrep $*  | sk --delimiter : --preview 'bat --color=always --highlight-line {2} {1}' --bind shift-up:preview-up,shift-down:preview-down)"
+      echo $output | cut -d':' -f1-3
+    '')
   ];
 
   programs.git = {
