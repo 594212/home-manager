@@ -6,12 +6,11 @@
       cat = "bat --paging=never";
       lzg = "lazygit";
       lzd = "lazydocker";
-      fzf = "sk";
       vi = "nvim";
       yy = "yazi";
       "?" = "duck";
       pf =
-        "sk --delimiter : --preview 'bat --color=always {1}' --bind shift-up:preview-up,shift-down:preview-down";
+        "fzf --delimiter : --preview 'bat --color=always {1}' --bind shift-up:preview-up,shift-down:preview-down --bind 'enter:become($EDITOR {1})'";
     };
 
     autosuggestion.enable = true;
@@ -34,7 +33,7 @@
       vi = "nvim";
       yy = "yazi";
       pf =
-        "sk --delimiter : --preview 'bat --color=always {1}' --bind shift-up:preview-up,shift-down:preview-down";
+        "fzf --delimiter : --preview 'bat --color=always {1}' --bind shift-up:preview-up,shift-down:preview-down --bind 'enter:become($EDITOR {1})'";
     };
 
     bashrcExtra = ''
@@ -122,7 +121,14 @@
       style = "compact";
     };
   };
-
+  programs.fzf = {
+    enable = true;
+    tmux.enableShellIntegration = true;
+    enableFishIntegration = true;
+    enableBashIntegration = true;
+    enableZshIntegration = true;
+    changeDirWidgetOptions = [ "--preview 'tree -C {} | head -200'" ];
+  };
   programs.yazi = {
     enable = true;
     enableFishIntegration = true;
@@ -145,6 +151,7 @@
     enable = true;
     clock24 = true;
     baseIndex = 1;
+    prefix = "C-w";
     disableConfirmationPrompt = true;
     terminal = "xterm-256color";
     escapeTime = 0;
