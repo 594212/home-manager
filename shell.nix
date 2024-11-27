@@ -33,7 +33,7 @@
       vi = "nvim";
       yy = "yazi";
       pf =
-        "fzf --delimiter : --preview 'bat --color=always {1}' --bind shift-up:preview-up,shift-down:preview-down --bind 'enter:become($EDITOR {1})'";
+        "fzf --delimiter :  --preview-window 'right:65%' --preview 'bat --color=always --style=numbers,changes {1}' --bind shift-up:preview-up,shift-down:preview-down --bind 'enter:become($EDITOR {1})'";
     };
 
     bashrcExtra = ''
@@ -128,6 +128,7 @@
     enableBashIntegration = true;
     enableZshIntegration = true;
     changeDirWidgetOptions = [ "--preview 'tree -C {} | head -200'" ];
+    defaultCommand = "fd --type f --strip-cwd-prefix";
   };
   programs.yazi = {
     enable = true;
@@ -159,6 +160,7 @@
     extraConfig = ''
       set-option -g status-position top
       set -ga terminal-overrides ',*:Ss=\E[%p1%d q:Se=\E[2 q'
+      setw -g mode-keys vi
     '';
     plugins = with pkgs; [
       tmuxPlugins.cpu

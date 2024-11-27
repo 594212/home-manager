@@ -24,6 +24,7 @@
     go
     nodejs_22
     typescript
+    dart-sass
     bun
 
     #rust
@@ -152,4 +153,11 @@
   };
 
   programs.lazygit = { enable = true; };
+
+  programs.gh = {
+    enable = true;
+    settings.git_protocol = "ssh";
+  };
+
+  programs.gh-dash = { enable = true; };
 }
