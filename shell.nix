@@ -109,6 +109,15 @@
     enableZshIntegration = true;
   };
 
+  programs.direnv = {
+    enableFishIntegration = true;
+    enableBashIntegration = true;
+    enableNushellIntegration = true;
+    enableZshIntegration = true;
+    nix-direnv.enable = true;
+    enable = true;
+  };
+
   programs.atuin = {
     enable = true;
     enableFishIntegration = true;

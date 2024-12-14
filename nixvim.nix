@@ -1,5 +1,17 @@
-{
+{ pkgs }: {
   enable = true;
+
+  # extraPlugins = [
+  #   (pkgs.vimUtils.buildVimPlugin {
+  #     name = "monochrome";
+  #     src = pkgs.fetchFromGitHub {
+  #       owner = "kdheepak";
+  #       repo = "monochrome.nvim";
+  #       rev = "2de78d9688ea4a177bcd9be554ab9192337d35ff";
+  #       hash = "sha256-TgilR5jnos2YZeaJUuej35bQ9yE825MQk0s6gxwkAbA=";
+  #     };
+  #   })
+  # ];
 
   opts = {
     number = true;

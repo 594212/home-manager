@@ -22,6 +22,9 @@
     cmake
 
     go
+    php
+    ruby_3_3
+    python39
     nodejs_22
     typescript
     dart-sass
@@ -57,7 +60,11 @@
     nil
     ccls
 
+    #docs
+    asciidoctor-with-extensions
+
     #browser
+    firefox
     brave
     lynx
     w3m
@@ -98,7 +105,7 @@
     };
   };
 
-  programs.nixvim = import ./nixvim.nix;
+  programs.nixvim = import ./nixvim.nix { inherit pkgs; };
 
   home.file = { };
   home.sessionPath = [ "$HOME/.cargo/bin" "$HOME/go/bin" "$HOME/.local/bin" ];
