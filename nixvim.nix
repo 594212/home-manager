@@ -55,7 +55,8 @@
   ];
 
   plugins = {
-    surround.enable = true;
+    web-devicons.enable = true;
+    vim-surround.enable = true;
     treesitter.enable = true;
     telescope = {
       enable = true;
@@ -88,11 +89,11 @@
     lsp = {
       enable = true;
       servers = {
-        nil-ls.enable = true;
+        nil_ls.enable = true;
         clangd.enable = true;
         ccls.enable = true;
         taplo.enable = true;
-        rust-analyzer = {
+        rust_analyzer = {
           installCargo = false;
           installRustc = false;
           enable = true;

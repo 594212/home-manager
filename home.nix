@@ -23,7 +23,7 @@
 
     go
     php
-    ruby_3_3
+    ruby_3_4
     python39
     nodejs_22
     typescript
@@ -49,9 +49,9 @@
     lazydocker
     bat
     imagemagick
-    (nerdfonts.override {
-      fonts = [ "FiraCode" "DroidSansMono" "JetBrainsMono" ];
-    })
+    nerd-fonts.jetbrains-mono
+    nerd-fonts.fira-code
+    nerd-fonts.droid-sans-mono
 
     #lsp
     vscode-langservers-extracted
