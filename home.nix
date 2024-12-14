@@ -1,14 +1,18 @@
-{ config, pkgs, lib, ... }:
+{ nixgl, config, pkgs, lib, ... }:
 
 {
   home.username = "sul";
   home.homeDirectory = "/home/sul";
-  home.stateVersion = "24.05"; # Please read the comment before changing.
+  home.stateVersion = "24.11"; # Please read the comment before changing.
 
   nixpkgs.config.allowUnfreePredicate = pkg:
     builtins.elem (lib.getName pkg) [ "ngrok" "vscode" ];
 
   fonts.fontconfig.enable = true;
+
+  nixGL.packages = nixgl.packages;
+  nixGL.defaultWrapper = "mesa";
+  nixGL.offloadWrapper = "nvidiaPrime";
 
   home.packages = with pkgs; [
     vim

@@ -197,7 +197,8 @@
   };
 
   programs.alacritty = {
-    enable = false;
+    enable = true;
+    package = (config.lib.nixGL.wrap pkgs.alacritty);
     settings = {
       terminal.shell = {
         program = "${pkgs.tmux}/bin/tmux";
