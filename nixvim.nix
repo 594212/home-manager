@@ -55,6 +55,7 @@
   ];
 
   plugins = {
+    diffview.enable = true;
     web-devicons.enable = true;
     vim-surround.enable = true;
     treesitter.enable = true;

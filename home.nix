@@ -52,6 +52,7 @@
     skim
     lazydocker
     bat
+    # ventoy
     imagemagick
     nerd-fonts.jetbrains-mono
     nerd-fonts.fira-code
@@ -105,7 +106,8 @@
     userEmail = "su1im69n@gmail.com";
     extraConfig = {
       init.defaultBranch = "main";
-      core.editor = "hx";
+      core.editor = "nvim";
+      diff.tool = "nvimdiff";
     };
   };
 
