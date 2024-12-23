@@ -52,6 +52,7 @@
     skim
     lazydocker
     bat
+    plantuml-c4
     # ventoy
     imagemagick
     nerd-fonts.jetbrains-mono
@@ -74,8 +75,23 @@
     lynx
     w3m
     urlencode
+    (writeShellScriptBin "plt" ''
+      if [ -z "$1" ]; then
+        echo "Usage: plt <path_to_puml_file>"
+        exit 1
+      fi
+      puml_path="$1"
+
+      # Check if the file exists
+      if [ ! -f "$puml_path" ]; then
+        echo "Error: File '$puml_path' not found."
+        exit 1
+      fi
+      filename="$(basename $puml_path)"
+      title="''${filename%.puml}"
+      cat $puml_path | plantuml -utxt -p | zk new --interactive diagram --title $title
+    '')
     (writeShellScriptBin "duck" ''
-      #!/bin/sh
       url="https://lite.duckduckgo.com/lite?kd=-1&kp=-1&q=$(urlencode "$*")" # 🦆
       #chat "🦆 searching: $* $url"
       exec lynx "$url"
@@ -120,12 +136,16 @@
       source = ./lynx;
       recursive = true;
     };
+    ".config/zk" = {
+      source = ./zk;
+      recursive = true;
+    };
   };
   home.sessionVariables = {
     LYNX_CFG = "$HOME/.config/lynx/lynx.cfg";
     LYNX_LSS = "$HOME/.config/lynx/lynx.lss";
     EDITOR = "hx";
-    VISUAL = "${"EDITOR:-/usr/bin/nano"}";
+    VISUAL = "$EDITOR";
     PKG_CONFIG_PATH = "${pkgs.openssl.dev}/lib/pkgconfig";
     DOCKER_HOST = "unix:///run/user/1000/docker.sock";
     OPENSSL_DEV = "openssl.dev";

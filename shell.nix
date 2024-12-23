@@ -226,7 +226,7 @@
         default-title = "Untitled";
         filename = "{{id}}-{{slug title}}";
         extension = "md";
-        template = "readme.md";
+        template = "default.md";
         id-charset = "alphanum";
         id-length = 4;
         id-case = "lower";
@@ -243,18 +243,25 @@
       # NAMED FILTERS
       filter.recents = "--sort created- --created-after 'last two weeks'";
 
-      # group.daily = {
-      #   # Directories listed here will automatically use this group when creating notes.
-      #   paths = [ "journal/daily" ];
+      group.daily = {
+        # Directories listed here will automatically use this group when creating notes.
+        paths = [ "journal/daily" ];
 
-      #   note = {
-      #     # %Y-%m-%d is actually the default format, so you could use {{format-date now}} instead.
-      #     filename = "{{format-date now '%Y-%m-%d'}}";
-      #     extension = "md";
-      #     template = "daily.md";
-      #   };
-      # };
+        note = {
+          # %Y-%m-%d is actually the default format, so you could use {{format-date now}} instead.
+          filename = "{{format-date now '%Y-%m-%d'}}";
+          extension = "md";
+          template = "daily.md";
+        };
+      };
 
+      group.diagram = {
+        note = {
+          extension = "md";
+          filename = "{{title}}";
+          template = "diagram.md";
+        };
+      };
       # COMMAND ALIASES
       alias = {
         # Edit the last modified note.
