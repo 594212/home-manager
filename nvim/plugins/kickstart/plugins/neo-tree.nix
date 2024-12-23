@@ -5,24 +5,14 @@
     plugins.neo-tree = {
       enable = true;
 
-      filesystem = {
-        window = {
-          mappings = {
-            "\\" = "close_window";
-          };
-        };
-      };
+      filesystem = { window = { mappings = { "<M-1>" = "close_window"; }; }; };
     };
 
     # https://nix-community.github.io/nixvim/keymaps/index.html
-    keymaps = [
-      {
-        key = "\\";
-        action = "<cmd>Neotree reveal<cr>";
-        options = {
-          desc = "NeoTree reveal";
-        };
-      }
-    ];
+    keymaps = [{
+      key = "<M-1>";
+      action = "<cmd>Neotree reveal<cr>";
+      options = { desc = "NeoTree reveal"; };
+    }];
   };
 }

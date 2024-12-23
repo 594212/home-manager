@@ -26,10 +26,10 @@
     #  Uncomment any of the lines below to enable them (you will need to restart nvim).
     #
     # ./plugins/kickstart/plugins/debug.nix
-    # ./plugins/kickstart/plugins/indent-blankline.nix
+    ./plugins/kickstart/plugins/indent-blankline.nix
     # ./plugins/kickstart/plugins/lint.nix
-    # ./plugins/kickstart/plugins/autopairs.nix
-    # ./plugins/kickstart/plugins/neo-tree.nix
+    ./plugins/kickstart/plugins/autopairs.nix
+    ./plugins/kickstart/plugins/neo-tree.nix
     #
     # NOTE: Configure your own plugins `see https://nix-community.github.io/nixvim/`
     # Add your plugins to ./plugins/custom/plugins and import them below
@@ -121,15 +121,8 @@
     #
     # If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
     colorschemes = {
+      gruvbox.enable = true;
       # https://nix-community.github.io/nixvim/colorschemes/tokyonight/index.html
-      tokyonight = {
-        enable = true;
-        settings = {
-          # Like many other themes, this one has different styles, and you could load
-          # any other, such as 'storm', 'moon', or 'day'.
-          style = "night";
-        };
-      };
     };
 
     # https://nix-community.github.io/nixvim/NeovimOptions/index.html?highlight=globals#globals
@@ -314,6 +307,10 @@
     ];
 
     plugins = {
+      zk.enable = true;
+      diffview.enable = true;
+      vim-surround.enable = true;
+
       # Adds icons for plugins to utilize in ui
       web-devicons.enable = true;
 

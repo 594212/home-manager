@@ -127,8 +127,6 @@
     };
   };
 
-  programs.nixvim = import ./nixvim.nix { inherit pkgs; };
-
   home.file = { };
   home.sessionPath = [ "$HOME/.cargo/bin" "$HOME/go/bin" "$HOME/.local/bin" ];
   home.file = {
@@ -144,7 +142,6 @@
   home.sessionVariables = {
     LYNX_CFG = "$HOME/.config/lynx/lynx.cfg";
     LYNX_LSS = "$HOME/.config/lynx/lynx.lss";
-    EDITOR = "hx";
     VISUAL = "$EDITOR";
     PKG_CONFIG_PATH = "${pkgs.openssl.dev}/lib/pkgconfig";
     DOCKER_HOST = "unix:///run/user/1000/docker.sock";
@@ -186,7 +183,10 @@
     };
   };
 
-  programs.lazygit = { enable = true; };
+  programs.lazygit = {
+    enable = true;
+    settings.promptToReturnFromSubprocess = false;
+  };
 
   # programs.gh = {
   #   enable = true;

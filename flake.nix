@@ -24,8 +24,12 @@
     in {
       homeConfigurations."sul" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
-        modules =
-          [ ./home.nix inputs.nixvim.homeManagerModules.nixvim ./shell.nix ];
+        modules = [
+          ./home.nix
+          inputs.nixvim.homeManagerModules.nixvim
+          ./shell.nix
+          ./nvim/nixvim.nix
+        ];
         # Optionally use extraSpecialArgs
         extraSpecialArgs = { inherit inputs nixgl; };
       };
