@@ -91,6 +91,7 @@
     lsp = {
       enable = true;
       servers = {
+        marksman.enable = true;
         zk.enable = true;
         nil_ls.enable = true;
         clangd.enable = true;
