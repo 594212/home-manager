@@ -121,7 +121,63 @@
     #
     # If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
     colorschemes = {
-      gruvbox.enable = true;
+      gruvbox = {
+        enable = true;
+        luaConfig.pre = ''
+          require("gruvbox").setup({
+            terminal_colors = true, -- add neovim terminal colors
+            undercurl = true,
+            underline = true,
+            bold = true,
+            italic = {
+              strings = false,
+              emphasis = true,
+              comments = true,
+              operators = false,
+              folds = true,
+            },
+            strikethrough = true,
+            invert_selection = false,
+            invert_signs = false,
+            invert_tabline = false,
+            invert_intend_guides = false,
+            inverse = true, -- invert background for search, diffs, statuslines and errors
+            contrast = "", -- can be "hard", "soft" or empty string
+            palette_overrides = {},
+            overrides = {},
+            dim_inactive = false,
+            transparent_mode = false,
+
+            # overrides = {
+            #   -- Background colors
+            #   Normal = { bg = "#4c4642ff" },
+            #   NormalFloat = { bg = "#32302fff" },
+            #   Terminal = { bg = "#32302fff" },
+            #
+            #   -- Syntax highlighting colors
+            #   ["@attribute"] = { fg = "#81a2be" },
+            #   ["@boolean"] = { fg = "#b5bd68" },
+            #   ["@comment"] = { fg = "#828482" },
+            #   ["@constant"] = { fg = "#b5bd68" },
+            #   ["@constructor"] = { fg = "#81a2be" },
+            #   ["@enum"] = { fg = "#f0c674" },
+            #   ["@function"] = { fg = "#f0c674" },
+            #   ["@hint"] = { fg = "#b5bd68" },
+            #   ["@keyword"] = { fg = "#cc6666" },
+            #   ["@link_text"] = { fg = "#f0c674", italic = true },
+            #   ["@number"] = { fg = "#b5bd68" },
+            #   ["@operator"] = { fg = "#f0c674" },
+            #   ["@string"] = { fg = "#818181" },
+            #   ["@tag"] = { fg = "#81a2be" },
+            #   ["@text.literal"] = { fg = "#f0c674" },
+            #   ["@title"] = { fg = "#c5c8c6", bold = true },
+            #   ["@type"] = { fg = "#a19b9b" },
+            #   ["@variable"] = { fg = "#c5c8c6" },
+            # }
+          })
+          vim.cmd("colorscheme gruvbox");
+        '';
+      };
       # https://nix-community.github.io/nixvim/colorschemes/tokyonight/index.html
     };
 
@@ -133,7 +189,7 @@
       maplocalleader = " ";
 
       # Set to true if you have a Nerd Font installed and selected in the terminal
-      have_nerd_font = false;
+      have_nerd_font = true;
     };
 
     # [[ Setting options ]]
