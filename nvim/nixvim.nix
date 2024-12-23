@@ -148,32 +148,27 @@
             dim_inactive = false,
             transparent_mode = false,
 
-            # overrides = {
-            #   -- Background colors
-            #   Normal = { bg = "#4c4642ff" },
-            #   NormalFloat = { bg = "#32302fff" },
-            #   Terminal = { bg = "#32302fff" },
-            #
-            #   -- Syntax highlighting colors
-            #   ["@attribute"] = { fg = "#81a2be" },
-            #   ["@boolean"] = { fg = "#b5bd68" },
-            #   ["@comment"] = { fg = "#828482" },
-            #   ["@constant"] = { fg = "#b5bd68" },
-            #   ["@constructor"] = { fg = "#81a2be" },
-            #   ["@enum"] = { fg = "#f0c674" },
-            #   ["@function"] = { fg = "#f0c674" },
-            #   ["@hint"] = { fg = "#b5bd68" },
-            #   ["@keyword"] = { fg = "#cc6666" },
-            #   ["@link_text"] = { fg = "#f0c674", italic = true },
-            #   ["@number"] = { fg = "#b5bd68" },
-            #   ["@operator"] = { fg = "#f0c674" },
-            #   ["@string"] = { fg = "#818181" },
-            #   ["@tag"] = { fg = "#81a2be" },
-            #   ["@text.literal"] = { fg = "#f0c674" },
-            #   ["@title"] = { fg = "#c5c8c6", bold = true },
-            #   ["@type"] = { fg = "#a19b9b" },
-            #   ["@variable"] = { fg = "#c5c8c6" },
-            # }
+            overrides = {
+              -- Syntax highlighting colors
+              ["@attribute"] = { fg = "#81a2be" },
+              ["@boolean"] = { fg = "#b5bd68" },
+              ["@comment"] = { fg = "#828482" },
+              ["@constant"] = { fg = "#b5bd68" },
+              ["@constructor"] = { fg = "#81a2be" },
+              ["@enum"] = { fg = "#f0c674" },
+              ["@function"] = { fg = "#f0c674" },
+              ["@hint"] = { fg = "#b5bd68" },
+              ["@keyword"] = { fg = "#cc6666" },
+              ["@link_text"] = { fg = "#f0c674", italic = true },
+              ["@number"] = { fg = "#b5bd68" },
+              ["@operator"] = { fg = "#f0c674" },
+              ["@string"] = { fg = "#818181" },
+              ["@tag"] = { fg = "#81a2be" },
+              ["@text.literal"] = { fg = "#f0c674" },
+              ["@title"] = { fg = "#c5c8c6", bold = true },
+              ["@type"] = { fg = "#a19b9b" },
+              ["@variable"] = { fg = "#c5c8c6" },
+            }
           })
           vim.cmd("colorscheme gruvbox");
         '';
