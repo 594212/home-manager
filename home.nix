@@ -142,7 +142,6 @@
   home.sessionVariables = {
     LYNX_CFG = "$HOME/.config/lynx/lynx.cfg";
     LYNX_LSS = "$HOME/.config/lynx/lynx.lss";
-    VISUAL = "$EDITOR";
     PKG_CONFIG_PATH = "${pkgs.openssl.dev}/lib/pkgconfig";
     DOCKER_HOST = "unix:///run/user/1000/docker.sock";
     OPENSSL_DEV = "openssl.dev";

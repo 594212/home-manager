@@ -131,12 +131,12 @@
           # Jump to the definition of the word under your cusor.
           #  This is where a variable was first declared, or where a function is defined, etc.
           #  To jump back, press <C-t>.
-          {
-            mode = "n";
-            key = "gd";
-            action.__raw = "require('telescope.builtin').lsp_definitions";
-            options = { desc = "LSP: [G]oto [D]efinition"; };
-          }
+          # {
+          #   mode = "n";
+          #   key = "gd";
+          #   action.__raw = "require('telescope.builtin').lsp_definitions";
+          #   options = { desc = "LSP: [G]oto [D]efinition"; };
+          # }
           # Find references for the word under your cursor.
           {
             mode = "n";
@@ -183,6 +183,10 @@
         lspBuf = {
           # Rename the variable under your cursor.
           #  Most Language Servers support renaming across files, etc.
+          "gd" = {
+            action = "definition";
+            desc = "LSP: [G]oto [D]efinition";
+          };
           "<leader>rn" = {
             action = "rename";
             desc = "LSP: [R]e[n]ame";
