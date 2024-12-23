@@ -55,6 +55,7 @@
   ];
 
   plugins = {
+    zk.enable = true;
     diffview.enable = true;
     web-devicons.enable = true;
     vim-surround.enable = true;
@@ -90,6 +91,7 @@
     lsp = {
       enable = true;
       servers = {
+        zk.enable = true;
         nil_ls.enable = true;
         clangd.enable = true;
         ccls.enable = true;

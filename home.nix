@@ -27,8 +27,8 @@
 
     go
     php
-    ruby_3_4
-    python39
+    # ruby_3_4
+    # python39
     nodejs_22
     typescript
     dart-sass
@@ -125,6 +125,7 @@
     LYNX_CFG = "$HOME/.config/lynx/lynx.cfg";
     LYNX_LSS = "$HOME/.config/lynx/lynx.lss";
     EDITOR = "hx";
+    VISUAL = "${"EDITOR:-/usr/bin/nano"}";
     PKG_CONFIG_PATH = "${pkgs.openssl.dev}/lib/pkgconfig";
     DOCKER_HOST = "unix:///run/user/1000/docker.sock";
     OPENSSL_DEV = "openssl.dev";
@@ -167,10 +168,10 @@
 
   programs.lazygit = { enable = true; };
 
-  programs.gh = {
-    enable = true;
-    settings.git_protocol = "ssh";
-  };
+  # programs.gh = {
+  #   enable = true;
+  #   settings.git_protocol = "ssh";
+  # };
 
-  programs.gh-dash = { enable = true; };
+  # programs.gh-dash = { enable = true; };
 }

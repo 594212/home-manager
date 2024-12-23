@@ -218,5 +218,55 @@
       };
     };
   };
+  programs.zk = {
+    enable = true;
+    settings = {
+      note = {
+        language = "en";
+        default-title = "Untitled";
+        filename = "{{id}}-{{slug title}}";
+        extension = "md";
+        template = "readme.md";
+        id-charset = "alphanum";
+        id-length = 4;
+        id-case = "lower";
+      };
+      # EXTERNAL TOOLS
+      tool = {
+        # Default shell used by aliases and commands.
+        shell = "${pkgs.zsh}/bin/zsh";
+        # Pager used to scroll through long output.
+        pager = "less -FIRX";
+        # Command used to preview a note during interactive fzf mode.
+        fzf-preview = "bat -p --color always {-1}";
+      };
+      # NAMED FILTERS
+      filter.recents = "--sort created- --created-after 'last two weeks'";
 
+      # group.daily = {
+      #   # Directories listed here will automatically use this group when creating notes.
+      #   paths = [ "journal/daily" ];
+
+      #   note = {
+      #     # %Y-%m-%d is actually the default format, so you could use {{format-date now}} instead.
+      #     filename = "{{format-date now '%Y-%m-%d'}}";
+      #     extension = "md";
+      #     template = "daily.md";
+      #   };
+      # };
+
+      # COMMAND ALIASES
+      alias = {
+        # Edit the last modified note.
+        edlast = "zk edit --limit 1 --sort modified- $@";
+        # Edit the notes selected interactively among the notes created the last two weeks.
+        recent =
+          "zk edit --sort created- --created-after 'last two weeks' --interactive";
+        # Show a random note.
+        lucky = "zk list --quiet --format full --sort random --limit 1";
+        # daily = ''zk new --no-input "$ZK_NOTEBOOK_DIR/journal/daily"'';
+      };
+      extra.author = "Suleiman";
+    };
+  };
 }
