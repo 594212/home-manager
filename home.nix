@@ -89,6 +89,12 @@
       fi
       filename="$(basename $puml_path)"
       title="''${filename%.puml}"
+      error=$(zk new -n diagram --title "$title" 2>&1) 
+      if [ $? -ne 0 ]; then
+        path=$(echo $error | cut -d':' -f4)
+        rm -f $path
+      fi
+
       cat $puml_path | plantuml -utxt -p | zk new --interactive diagram --title $title
     '')
     (writeShellScriptBin "duck" ''
