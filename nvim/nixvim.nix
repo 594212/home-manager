@@ -150,24 +150,21 @@
 
             overrides = {
               -- Syntax highlighting colors
-              ["@attribute"] = { fg = "#81a2be" },
-              ["@boolean"] = { fg = "#b5bd68" },
-              ["@comment"] = { fg = "#828482" },
-              ["@constant"] = { fg = "#b5bd68" },
-              ["@constructor"] = { fg = "#81a2be" },
-              ["@enum"] = { fg = "#f0c674" },
-              ["@function"] = { fg = "#f0c674" },
-              ["@hint"] = { fg = "#b5bd68" },
-              ["@keyword"] = { fg = "#cc6666" },
-              ["@link_text"] = { fg = "#f0c674", italic = true },
-              ["@number"] = { fg = "#b5bd68" },
-              ["@operator"] = { fg = "#f0c674" },
-              ["@string"] = { fg = "#818181" },
-              ["@tag"] = { fg = "#81a2be" },
-              ["@text.literal"] = { fg = "#f0c674" },
-              ["@title"] = { fg = "#c5c8c6", bold = true },
-              ["@type"] = { fg = "#a19b9b" },
-              ["@variable"] = { fg = "#c5c8c6" },
+              GruvboxRed = { fg = "#cc6666" },
+              Attribute = { fg = "#81a2be" }, -- @attribute
+              Boolean = { fg = "#b5bd68" }, -- @boolean
+              Comment = { fg = "#828482" }, -- @comment
+              Constant = { fg = "#b5bd68" }, -- @constant
+              Constructor = { fg = "#81a2be" }, -- @constructor
+              Function = { fg = GruvboxFg1 }, -- @function
+              -- Keyword = { fg = "#cc6666" }, -- @keyword
+              LinkText = { fg = "#f0c674", italic = true }, -- @link_text
+              Number = { fg = "#b5bd68" }, -- @number
+              String = { fg = "#818181" }, -- @string
+              Tag = { fg = "#81a2be" }, -- @tag
+              Title = { fg = "#c5c8c6", bold = true }, -- @title
+              Type = { fg = "#a19b9b" }, -- @type
+              Variable = { fg = "#c5c8c6" }, -- @variable
             }
           })
           vim.cmd("colorscheme gruvbox");
