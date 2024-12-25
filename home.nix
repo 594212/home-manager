@@ -75,6 +75,8 @@
     lynx
     w3m
     urlencode
+
+    mermaid-cli
     (writeShellScriptBin "plt" ''
       if [ -z "$1" ]; then
         echo "Usage: plt <path_to_puml_file>"
@@ -97,6 +99,7 @@
 
       cat $puml_path | plantuml -utxt -p | zk new --interactive diagram --title $title
     '')
+
     (writeShellScriptBin "duck" ''
       url="https://lite.duckduckgo.com/lite?kd=-1&kp=-1&q=$(urlencode "$*")" # 🦆
       #chat "🦆 searching: $* $url"

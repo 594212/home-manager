@@ -222,6 +222,8 @@
   programs.zk = {
     enable = true;
     settings = {
+      notebook.dir = "~/journal";
+
       note = {
         language = "en";
         default-title = "Untitled";
@@ -232,6 +234,7 @@
         id-length = 4;
         id-case = "lower";
       };
+
       format.markdown = {
         # Format used to generate links between notes.
         # Either "wiki", "markdown" or a custom template. Default is "markdown".

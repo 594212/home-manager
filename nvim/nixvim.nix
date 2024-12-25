@@ -378,11 +378,21 @@
     };
 
     # https://nix-community.github.io/nixvim/NeovimOptions/index.html?highlight=extraplugins#extraplugins
-    extraPlugins = with pkgs.vimPlugins;
-      [
-        # Useful for getting pretty icons, but requires a Nerd Font.
-        nvim-web-devicons # TODO: Figure out how to configure using this with telescope
-      ];
+    extraPlugins = with pkgs.vimPlugins; [
+      # Useful for getting pretty icons, but requires a Nerd Font.
+      nvim-web-devicons # TODO: Figure out how to configure using this with telescope
+
+      #My extra
+      (pkgs.vimUtils.buildVimPlugin {
+        name = "monochrome";
+        src = pkgs.fetchFromGitHub {
+          owner = "roobert";
+          repo = "search-replace.nvim";
+          rev = "d92290a02d97f4e9b8cd60d28b56b403432158d5"; # commit hash
+          hash = "sha256-hEdEBDeHbJc3efgo7djktX4RemAiX8ZvQlJIEoAgkPM=";
+        };
+      })
+    ];
 
     # TODO: Figure out where to move this
     # https://nix-community.github.io/nixvim/NeovimOptions/index.html?highlight=extraplugins#extraconfigluapre
