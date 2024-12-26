@@ -217,6 +217,7 @@
         shape = "Beam";
         blinking = "On";
       };
+      general = { import = [ "${pkgs.alacritty-theme}/gruvbox_dark.toml" ]; };
     };
   };
   programs.zk = {
