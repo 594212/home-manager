@@ -359,6 +359,7 @@
       diffview.enable = true;
       vim-surround.enable = true;
       plantuml-syntax.enable = true;
+      markdown-preview.enable = true;
 
       # Adds icons for plugins to utilize in ui
       web-devicons.enable = true;

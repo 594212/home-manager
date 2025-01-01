@@ -6,7 +6,7 @@
   home.stateVersion = "24.11"; # Please read the comment before changing.
 
   nixpkgs.config.allowUnfreePredicate = pkg:
-    builtins.elem (lib.getName pkg) [ "ngrok" "vscode" ];
+    builtins.elem (lib.getName pkg) [ "vscode" ];
 
   fonts.fontconfig.enable = true;
 
@@ -17,13 +17,16 @@
   home.packages = with pkgs; [
     vim
     vscode
-    ngrok
 
     #c lang
-    meson
     ninja
     pkg-config
     cmake
+    xmake
+
+    #zig
+    zig
+    zls
 
     go
     php
@@ -47,13 +50,13 @@
     fd
     xsel
     tldr
-    nixfmt-classic
     ripgrep
     skim
     lazydocker
     bat
     plantuml-c4
     # ventoy
+    mangohud
     imagemagick
     nerd-fonts.jetbrains-mono
     nerd-fonts.fira-code
@@ -62,9 +65,12 @@
     #lsp
     vscode-langservers-extracted
     nodePackages.typescript-language-server
+    lua-language-server
     taplo
     nil
     ccls
+    #fmt
+    nixfmt-classic
 
     #docs
     asciidoctor-with-extensions

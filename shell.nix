@@ -20,6 +20,7 @@
     initExtraFirst = ''
       source $HOME/.nix-profile/etc/profile.d/nix.sh
       export VISUAL=$EDITOR
+      bindkey -r "^V"
     '';
   };
 
