@@ -78,7 +78,6 @@
     #browser
     firefox
     brave
-    lynx
     w3m
     urlencode
 
@@ -104,12 +103,6 @@
       fi
 
       cat $puml_path | plantuml -utxt -p | zk new --interactive diagram --title $title
-    '')
-
-    (writeShellScriptBin "duck" ''
-      url="https://lite.duckduckgo.com/lite?kd=-1&kp=-1&q=$(urlencode "$*")" # 🦆
-      #chat "🦆 searching: $* $url"
-      exec lynx "$url"
     '')
     (writeShellScriptBin "prg" ''
       #!/usr/bin/env bash
@@ -145,18 +138,12 @@
   home.file = { };
   home.sessionPath = [ "$HOME/.cargo/bin" "$HOME/go/bin" "$HOME/.local/bin" ];
   home.file = {
-    ".config/lynx" = {
-      source = ./lynx;
-      recursive = true;
-    };
     ".config/zk" = {
       source = ./zk;
       recursive = true;
     };
   };
   home.sessionVariables = {
-    LYNX_CFG = "$HOME/.config/lynx/lynx.cfg";
-    LYNX_LSS = "$HOME/.config/lynx/lynx.lss";
     PKG_CONFIG_PATH = "${pkgs.openssl.dev}/lib/pkgconfig";
     DOCKER_HOST = "unix:///run/user/1000/docker.sock";
     OPENSSL_DEV = "openssl.dev";

@@ -8,7 +8,6 @@
       lzd = "lazydocker";
       vi = "nvim";
       yy = "yazi";
-      "?" = "duck";
       pf =
         "fzf --delimiter :  --preview-window 'right:65%' --preview 'bat --color=always --style=numbers,changes {1}' --bind shift-up:preview-up,shift-down:preview-down --bind 'enter:become($EDITOR {1})'";
     };
@@ -29,7 +28,6 @@
     shellAliases = {
       cat = "bat --paging=never";
       lzg = "lazygit";
-      "?" = "duck";
       lzd = "lazydocker";
       fzf = "sk";
       vi = "nvim";
@@ -48,7 +46,6 @@
     shellAliases = {
       cat = "bat --paging=never";
       lzg = "lazygit";
-      "?" = "duck";
       lzd = "lazydocker";
       fzf = "sk";
       vi = "nvim";
