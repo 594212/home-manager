@@ -20,6 +20,10 @@
     initExtraFirst = ''
       source $HOME/.nix-profile/etc/profile.d/nix.sh
       export VISUAL=$EDITOR
+
+      bindkey '^H' backward-kill-word
+
+
       #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
       export SDKMAN_DIR="$HOME/.sdkman"
       [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
@@ -206,7 +210,7 @@
         {
           key = "Backspace";
           mods = "Control";
-          chars = "b";
+          chars = "\\b";
         }
         {
           key = "N";
@@ -216,11 +220,11 @@
       ];
 
       terminal.shell = {
-        program = "${pkgs.tmux}/bin/tmux";
+        program = "${pkgs.elvish}/bin/elvish";
         args = [ "-l" ];
       };
       window = {
-        decorations = "None";
+        decorations = "Full";
         padding = {
           x = 5;
           y = 2;
@@ -246,7 +250,9 @@
         shape = "Beam";
         blinking = "On";
       };
-      general = { import = [ "${pkgs.alacritty-theme}/gruvbox_dark.toml" ]; };
+      general = {
+        import = [ "${pkgs.alacritty-theme}/gruvbox_material_hard_dark.toml" ];
+      };
     };
   };
   programs.zk = {
@@ -335,8 +341,6 @@
     enable = true;
     enableFishIntegration = true;
     enableBashIntegration = true;
-    enableNushellIntegration = true;
     enableZshIntegration = true;
-
   };
 }

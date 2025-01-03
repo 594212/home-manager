@@ -13,5 +13,5 @@ fn cat { |@a| bat --paging=never $@a }
 fn fzf { |@a| sk $@a }
 fn lzd { |@a| lazydocker $@a }
 fn lzg { |@a| lazygit $@a }
-# fn vi { |@a| nvim $@a }
+fn vi { |@a| nvim $@a }
 fn yy { |@a| yazi $@a }
