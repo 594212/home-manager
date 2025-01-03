@@ -330,4 +330,13 @@
       extra.author = "Suleiman";
     };
   };
+
+  programs.eza = {
+    enable = true;
+    enableFishIntegration = true;
+    enableBashIntegration = true;
+    enableNushellIntegration = true;
+    enableZshIntegration = true;
+
+  };
 }
