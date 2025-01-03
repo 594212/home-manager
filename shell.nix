@@ -2,6 +2,7 @@
 
   programs.zsh = {
     enable = true;
+    defaultKeymap = "emacs";
     shellAliases = {
       cat = "bat --paging=never";
       lzg = "lazygit";
@@ -19,7 +20,9 @@
     initExtraFirst = ''
       source $HOME/.nix-profile/etc/profile.d/nix.sh
       export VISUAL=$EDITOR
-      bindkey -r "^V"
+      #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+      export SDKMAN_DIR="$HOME/.sdkman"
+      [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
     '';
   };
 
@@ -199,6 +202,19 @@
     enable = true;
     package = (config.lib.nixGL.wrap pkgs.alacritty);
     settings = {
+      keyboard.bindings = [
+        {
+          key = "Backspace";
+          mods = "Control";
+          chars = "b";
+        }
+        {
+          key = "N";
+          mods = "Control|Shift";
+          action = "CreateNewWindow";
+        }
+      ];
+
       terminal.shell = {
         program = "${pkgs.tmux}/bin/tmux";
         args = [ "-l" ];
@@ -210,6 +226,21 @@
           y = 2;
         };
         dynamic_padding = true;
+      };
+      font = {
+        size = 14;
+        normal = {
+          family = "Hack Nerd Font Mono";
+          style = "Regular";
+        };
+        bold = {
+          family = "Hack Nerd Font Mono";
+          style = "Bold";
+        };
+        italic = {
+          family = "Hack Nerd Font Mono";
+          style = "Italic";
+        };
       };
       cursor.style = {
         shape = "Beam";

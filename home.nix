@@ -17,6 +17,7 @@
   home.packages = with pkgs; [
     vim
     vscode
+    elvish
 
     #c lang
     ninja
@@ -140,6 +141,10 @@
   home.file = {
     ".config/zk" = {
       source = ./zk;
+      recursive = true;
+    };
+    ".config/elvish" = {
+      source = ./elvish;
       recursive = true;
     };
   };
