@@ -281,10 +281,10 @@
         options = { desc = "Exit terminal mode"; };
       }
       {
-        mode = "i";
-        key = "<C-BS>";
-        action = "<C-w>";
-        options = { desc = "remove last word"; };
+        mode = [ "n" "v" ];
+        key = "<leader>y";
+        action = ''"+y'';
+        options = { desc = "copy to system clipboard"; };
       }
       # TIP: Disable arrow keys in normal mode
       /* {
