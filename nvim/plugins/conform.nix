@@ -1,12 +1,13 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   programs.nixvim = {
     # Dependencies
     #
     # https://nix-community.github.io/nixvim/NeovimOptions/index.html?highlight=extraplugins#extrapackages
-    extraPackages = with pkgs; [
-      # Used to format Lua code
-      stylua
-    ];
+    extraPackages = with pkgs;
+      [
+        # Used to format Lua code
+        stylua
+      ];
 
     # Autoformat
     # https://nix-community.github.io/nixvim/plugins/conform-nvim.html
@@ -27,7 +28,7 @@
           end
         '';
         formatters_by_ft = {
-          lua = ["stylua"];
+          lua = [ "stylua" ];
           # Conform can also run multiple formatters sequentially
           # python = [ "isort "black" ];
           #
@@ -39,19 +40,15 @@
     };
 
     # https://nix-community.github.io/nixvim/keymaps/index.html
-    keymaps = [
-      {
-        mode = "";
-        key = "<leader>f";
-        action.__raw = ''
-          function()
-            require('conform').format { async = true, lsp_fallback = true }
-          end
-        '';
-        options = {
-          desc = "[F]ormat buffer";
-        };
-      }
-    ];
+    keymaps = [{
+      mode = "";
+      key = "<C-j>";
+      action.__raw = ''
+        function()
+          require('conform').format { async = true, lsp_fallback = true }
+        end
+      '';
+      options = { desc = "Format buffer"; };
+    }];
   };
 }
