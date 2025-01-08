@@ -9,8 +9,7 @@
       lzd = "lazydocker";
       vi = "nvim";
       yy = "yazi";
-      pf =
-        "fzf --delimiter :  --preview-window 'right:65%' --preview 'bat --color=always --style=numbers,changes {1}' --bind shift-up:preview-up,shift-down:preview-down --bind 'enter:become($EDITOR {1})'";
+      pf = "fzf --preview 'bat --color=always --style=numbers,changes {1}'";
     };
 
     autosuggestion.enable = true;
@@ -39,8 +38,7 @@
       fzf = "sk";
       vi = "nvim";
       yy = "yazi";
-      pf =
-        "fzf --delimiter :  --preview-window 'right:65%' --preview 'bat --color=always --style=numbers,changes {1}' --bind shift-up:preview-up,shift-down:preview-down --bind 'enter:become($EDITOR {1})'";
+      pf = "fzf --preview 'bat --color=always --style=numbers,changes {1}'";
     };
 
     bashrcExtra = ''
@@ -113,6 +111,16 @@
     enableBashIntegration = true;
     enableNushellIntegration = true;
     enableZshIntegration = true;
+    settings = {
+      add_newline = false;
+      scan_timeout = 10;
+      directory.style = "white";
+      character = {
+        success_symbol = "~>";
+        error_symbol = "~>(red)";
+      };
+    };
+
   };
 
   programs.direnv = {
@@ -144,6 +152,14 @@
     enableZshIntegration = true;
     changeDirWidgetOptions = [ "--preview 'tree -C {} | head -200'" ];
     defaultCommand = "fd --type f --strip-cwd-prefix";
+    defaultOptions = [
+      "--bind 'shift-up:preview-page-up,shift-down:preview-page-down'"
+      "--bind 'ctrl-e:become($EDITOR {1})'"
+      "--bind 'alt-up:preview-up,alt-down:preview-down'"
+      "--ansi --disabled"
+      "--preview-window 'right:65%'"
+      "--delimiter ':'"
+    ];
   };
   programs.yazi = {
     enable = true;
@@ -220,7 +236,7 @@
       ];
 
       terminal.shell = {
-        program = "${pkgs.elvish}/bin/elvish";
+        program = "${pkgs.zsh}/bin/zsh";
         args = [ "-l" ];
       };
       window = {
@@ -339,6 +355,7 @@
 
   programs.eza = {
     enable = true;
+    enableNushellIntegration = true;
     enableFishIntegration = true;
     enableBashIntegration = true;
     enableZshIntegration = true;

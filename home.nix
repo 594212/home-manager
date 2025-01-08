@@ -21,9 +21,9 @@
 
     #c lang
     ninja
-    pkg-config
-    cmake
     xmake
+    cmake
+    pkg-config
 
     #zig
     zig
@@ -114,15 +114,10 @@
       fi
 
       rg_prefix="rg --column --line-number --no-heading --color=always --smart-case $*"
-      fzf --bind 'start:reload:'"$rg_prefix" \
+      fzf --preview 'bat --color=always --style=numbers,changes --highlight-line {2} {1}' \
+        --bind 'start:reload:'"$rg_prefix" \
         --bind "change:reload:$rg_prefix {q} || true" \
-        --ansi --disabled \
-        --delimiter : \
-        --bind "enter:become($EDITOR $format)" \
-        --preview 'bat --color=always --style=numbers,changes --highlight-line {2} {1}' \
-        --preview-window 'right:65%' \
-        --bind "shift-up:preview-page-up,shift-down:preview-page-down" \
-        --bind "alt-up:preview-up,alt-down:preview-down"
+        --bind "enter:become($EDITOR $format)"
     '')
   ];
 
