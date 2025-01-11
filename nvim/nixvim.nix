@@ -114,6 +114,7 @@
   programs.nixvim = {
     enable = true;
     defaultEditor = true;
+    diagnostics = { virtual_text = false; };
 
     # You can easily change to a different colorscheme.
     # Add your colorscheme here and enable it.
