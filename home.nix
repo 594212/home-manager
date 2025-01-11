@@ -158,7 +158,7 @@
           select = "underline";
         };
       };
-      theme = "autumn";
+      theme = "rasmus";
     };
     languages = {
       language-server.rust-analyzer = with pkgs; {
