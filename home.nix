@@ -106,19 +106,6 @@
 
       cat $puml_path | plantuml -utxt -p | zk new --interactive diagram --title $title
     '')
-    (writeShellScriptBin "prg" ''
-      #!/usr/bin/env bash
-      format='{1}:{2}:{3}'
-      if [ "$EDITOR" == 'nvim' ];then
-        format="+'call cursor({2},{3})' {1}"
-      fi
-
-      rg_prefix="rg --column --line-number --no-heading --color=always --smart-case $*"
-      fzf --preview 'bat --color=always --style=numbers,changes --highlight-line {2} {1}' \
-        --bind 'start:reload:'"$rg_prefix" \
-        --bind "change:reload:$rg_prefix {q} || true" \
-        --bind "enter:become($EDITOR $format)"
-    '')
   ];
 
   programs.git = {
