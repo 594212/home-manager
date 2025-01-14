@@ -42,7 +42,7 @@
     # https://nix-community.github.io/nixvim/keymaps/index.html
     keymaps = [{
       mode = "";
-      key = "<C-j>";
+      key = "<leader>j";
       action.__raw = ''
         function()
           require('conform').format { async = true, lsp_fallback = true }

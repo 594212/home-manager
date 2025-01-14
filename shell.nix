@@ -156,7 +156,6 @@
       "--bind 'shift-up:preview-page-up,shift-down:preview-page-down'"
       "--bind 'ctrl-e:become($EDITOR {1})'"
       "--bind 'alt-up:preview-up,alt-down:preview-down'"
-      "--ansi --disabled"
       "--preview-window 'right:65%'"
       "--delimiter ':'"
     ];
