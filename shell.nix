@@ -21,6 +21,7 @@
       export VISUAL=$EDITOR
 
       bindkey '^H' backward-kill-word
+      unsetopt alwaystoend
 
 
       #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
