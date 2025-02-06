@@ -23,8 +23,13 @@
     #c lang
     ninja
     xmake
-    cmake
+    # cmake
     pkg-config
+
+    # gnumake
+    # clang
+    # llvm
+    # lld
 
     #zig
     zig
@@ -160,7 +165,7 @@
           select = "underline";
         };
       };
-      theme = "rasmus";
+      theme = "jetbrains_dark";
     };
     languages = {
       language-server.rust-analyzer = with pkgs; {

@@ -33,7 +33,6 @@
   programs.bash = {
     enable = true;
     shellAliases = {
-      cat = "bat --paging=never";
       lzg = "lazygit";
       lzd = "lazydocker";
       fzf = "sk";
@@ -109,7 +108,7 @@
   programs.starship = {
     enable = true;
     enableFishIntegration = true;
-    enableBashIntegration = true;
+    enableBashIntegration = false;
     enableNushellIntegration = true;
     enableZshIntegration = true;
     settings = {
@@ -137,6 +136,8 @@
     enable = true;
     enableFishIntegration = true;
     enableNushellIntegration = true;
+    enableBashIntegration = false;
+    enableZshIntegration = true;
     settings = {
       dialect = "us";
       ignored_commands = [ "cd" "ls" "vi" ];
