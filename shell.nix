@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }: {
+{ config, pkgs, lib, inputs, ... }: {
 
   programs.zsh = {
     enable = true;
@@ -171,9 +171,9 @@
     settings = {
       log = { enabled = false; };
       manager = {
-        ratio = [ 1 1 6 ];
+        ratio = [ 2 2 6 ];
         show_hidden = false;
-        sort_by = "modified";
+        sort_by = "mtime";
         sort_dir_first = true;
         sort_reverse = true;
       };
@@ -195,14 +195,24 @@
       setw -g mode-keys vi
     '';
     plugins = with pkgs; [
-      tmuxPlugins.cpu
       {
-        plugin = tmuxPlugins.rose-pine;
+        plugin = inputs.minimal-tmux.packages.${pkgs.system}.default;
         extraConfig = ''
-          set -g @rose_pine_variant 'main'
-          set -g @rose_pine_disable_active_window_menu 'on'
+          set -g @minimal-tmux-bg "#da9969"
+          set -g @minimal-tmux-use-arrow true
+          set -g @minimal-tmux-right-arrow "|"
+          set -g @minimal-tmux-left-arrow "|"
+          set -g @minimal-tmux-justify "left"
         '';
       }
+      tmuxPlugins.cpu
+      # {
+      #   plugin = tmuxPlugins.rose-pine;
+      #   extraConfig = ''
+      #     set -g @rose_pine_variant 'main'
+      #     set -g @rose_pine_disable_active_window_menu 'on'
+      #   '';
+      # }
       {
         plugin = tmuxPlugins.mode-indicator;
         extraConfig = ''

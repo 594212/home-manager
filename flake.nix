@@ -13,6 +13,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixgl.url = "github:nix-community/nixGL";
+
+    minimal-tmux = {
+      url = "github:niksingh710/minimal-tmux-status";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { self, nixgl, nixpkgs, home-manager, ... }@inputs:

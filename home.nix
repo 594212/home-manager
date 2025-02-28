@@ -18,8 +18,8 @@
     vim
     micro
     vscode
-    elvish
 
+    elvish
     #c lang
     ninja
     xmake
@@ -41,6 +41,7 @@
     # python39
     nodejs_22
     typescript
+
     dart-sass
     bun
 
@@ -63,8 +64,8 @@
     bat
     plantuml-c4
     # ventoy
-    mangohud
-    imagemagick
+    # mangohud //fps checker
+    # imagemagick
     nerd-fonts.jetbrains-mono
     nerd-fonts.fira-code
     nerd-fonts.droid-sans-mono
@@ -127,7 +128,12 @@
   };
 
   home.file = { };
-  home.sessionPath = [ "$HOME/.cargo/bin" "$HOME/go/bin" "$HOME/.local/bin" ];
+  home.sessionPath = [
+    "$HOME/.cargo/bin"
+    "$HOME/go/bin"
+    "$HOME/.local/bin"
+    "$HOME/.cache/.bun/bin"
+  ];
   home.file = {
     ".config/zk" = {
       source = ./zk;
@@ -165,7 +171,7 @@
           select = "underline";
         };
       };
-      theme = "jetbrains_dark";
+      theme = "acme";
     };
     languages = {
       language-server.rust-analyzer = with pkgs; {
